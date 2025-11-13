@@ -1,0 +1,15 @@
+project: default
+source:
+  repoURL: https://github.com/haahaakon/backendtlspolicy-app
+  path: manifests
+  targetRevision: HEAD
+destination:
+  server: https://kubernetes.default.svc
+  namespace: https-reencrypt
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
+    enabled: true
+  syncOptions:
+    - CreateNamespace=true
