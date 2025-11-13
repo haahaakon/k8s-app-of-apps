@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apps
+  namespace: apps
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: https-reencrypt
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  source:
+    path: manifests
+    repoURL: https://github.com/haahaakon/backendtlspolicy-app
+    targetRevision: HEAD
