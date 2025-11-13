@@ -14,3 +14,10 @@ spec:
     path: manifests
     repoURL: https://github.com/haahaakon/backendtlspolicy-app
     targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      enabled: true
+    syncOptions:
+      - CreateNamespace=true
