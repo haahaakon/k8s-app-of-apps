@@ -1,15 +1,16 @@
-project: default
-source:
-  repoURL: https://github.com/haahaakon/backendtlspolicy-app
-  path: manifests
-  targetRevision: HEAD
-destination:
-  server: https://kubernetes.default.svc
-  namespace: https-reencrypt
-syncPolicy:
-  automated:
-    prune: true
-    selfHeal: true
-    enabled: true
-  syncOptions:
-    - CreateNamespace=true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: https-reencrypt
+    server: https://kubernetes.default.svc
+  project: https-reencrypt
+  source:
+    path: manifests
+    repoURL: https://github.com/haahaakon/backendtlspolicy-app
+    targetRevision: HEAD
