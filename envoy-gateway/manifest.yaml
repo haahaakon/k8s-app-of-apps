@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: envoy-gateway
+  namespace: envoy-gateway
+spec:
+  project: default
+  source:
+    chart: gateway-helm
+    repoURL: docker.io/envoyproxy
+    targetRevision: v0.0.0-latest
+  destination:
+    namespace: envoy-gateway-system
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    - ServerSideApply=true
+    automated:
+      prune: true
+      selfHeal: true
+# ---
+# apiVersion: gateway.networking.k8s.io/v1
+# kind: GatewayClass
+# metadata:
+#   name: eg
+# spec:
+#   controllerName: gateway.envoyproxy.io/gatewayclass-controller
+# ---
+# apiVersion: gateway.networking.k8s.io/v1
+# kind: Gateway
+# metadata:
+#   name: eg
+# spec:
+#   gatewayClassName: eg
+#   listeners:
+#     - name: http
+#       protocol: HTTP
+#       port: 80
+#     - name: http
+#       protocol: HTTPS
+#       port: 443
