@@ -23,8 +23,8 @@ spec:
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: EnvoyProxy
 metadata:
-  namespace: envoy-gateway-system
   name: eg-proxy-config
+  namespace: envoy-gateway-system
 spec:
   provider:
     type: Kubernetes
