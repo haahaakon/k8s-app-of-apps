@@ -26,6 +26,7 @@ metadata:
   name: eg-proxy-config
   namespace: envoy-gateway-system
 spec:
+  ipFamily: IPv6
   provider:
     type: Kubernetes
     kubernetes:
