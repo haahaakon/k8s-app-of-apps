@@ -3,6 +3,7 @@ kind: Application
 metadata:
   name: gatewayapi-operator
   namespace: argocd
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   project: default
   source:

@@ -5,6 +5,7 @@ metadata:
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
+  argocd.argoproj.io/sync-wave: "2"
 spec:
   destination:
     namespace: external-dns
