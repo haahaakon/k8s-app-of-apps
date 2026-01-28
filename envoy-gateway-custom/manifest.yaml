@@ -12,7 +12,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: manifests
+    path: manifests/ipv6
     repoURL: https://github.com/haahaakon/k8s-envoy-gateway-custom
     targetRevision: HEAD
   syncPolicy:
