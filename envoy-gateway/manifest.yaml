@@ -26,7 +26,7 @@ kind: EnvoyProxy
 metadata:
   name: eg-proxy-config
   namespace: envoy-gateway-system
-  argocd.argoproj.io/sync-wave: "1"
+  argocd.argoproj.io/sync-wave: "2"
 spec:
   ipFamily: IPv6
   provider:
@@ -49,7 +49,7 @@ kind: GatewayClass
 metadata:
   namespace: default
   name: eg
-  argocd.argoproj.io/sync-wave: "1"
+  argocd.argoproj.io/sync-wave: "2"
 spec:
   controllerName: gateway.envoyproxy.io/gatewayclass-controller
   parametersRef:
