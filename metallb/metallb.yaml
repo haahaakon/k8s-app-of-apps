@@ -18,6 +18,10 @@ spec:
           labels:
             app: metallb
             component: controller
+        # Using L2Advertisement mode only; frr-k8s (BGP) is unused and its
+        # statuscleaner job runs hostNetwork/hostPort, violating baseline PSA.
+        frrk8s:
+          enabled: false
   destination:
     server: https://kubernetes.default.svc
     namespace: metallb-system
