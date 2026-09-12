@@ -5,6 +5,7 @@ metadata:
   annotations:
     # wave 2: applied after the cert-manager chart (wave 1) is synced and its CRDs exist
     argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   acme:
     email: acme@lo0.no # TODO: replace with your email
