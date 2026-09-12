@@ -18,6 +18,7 @@ spec:
     targetRevision: HEAD
     directory:
       recurse: true
+      exclude: 'app-of-apps.yaml'
       jsonnet: {}
   syncPolicy:
     automated:
