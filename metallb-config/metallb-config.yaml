@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: manifests/ipv6
+    path: manifests
     repoURL: https://github.com/haahaakon/k8s-metallb-config
     targetRevision: HEAD
   syncPolicy:
