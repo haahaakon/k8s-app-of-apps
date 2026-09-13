@@ -2,19 +2,19 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: k8s.br0.no
+    external-dns.alpha.kubernetes.io/hostname: argocd.k8s.br0.no
     argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: argocd-httproute
   namespace: argocd
 spec:
   hostnames:
-  - k8s.br0.no
+  - argocd.k8s.br0.no
   parentRefs:
   - group: gateway.networking.k8s.io
     kind: Gateway
-    name: argocd-gateway
-    namespace: argocd
+    name: common-gateway
+    namespace: common-gateway
   rules:
   - backendRefs:
     - group: ""
